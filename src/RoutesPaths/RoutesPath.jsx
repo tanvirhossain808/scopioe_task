@@ -8,6 +8,7 @@ import { Navigate, RouterProvider, createBrowserRouter } from "react-router-dom"
 import Home from "../page/Home";
 import Layout from "../Layout/Layout";
 import Create_Account from "../page/Auth/Create_Account/Create_Account";
+import Login from "../page/Auth/Login/Login";
 
 
 // here some bugs
@@ -29,10 +30,10 @@ export const RoutesPath = () => {
                         path: '/createAccount',
                         element: <Create_Account />
                     },
-                    // {
-                    //     path: "/:userName",
-                    //     element: <ProfilePage></ProfilePage>
-                    // }
+                    {
+                        path: "/login",
+                        element: <Login />
+                    }
                 ]
             }
 

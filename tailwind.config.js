@@ -22,8 +22,17 @@ export default {
       borderWidth: { 1: ".7px" }
     },
     colors: {
-      "light-sky": "#4285F3"
-    }
+      "light-sky": "#4285F3",
+      "dark-sky": "#156BCA"
+    },
+    backgroundImage: {
+      'google-gradient': 'linear-gradient(91deg, #E4E4E4 0.64%, #FFF9 99.53%)',
+      'fb-gradient': 'linear-gradient(89deg, #298FFF 0.18%, #0778F5 99.28%)',
+
+    },
+    boxShadow: {
+      'google-shadow': '0px 4px 7px 0px rgba(131, 131, 131, 0.23)',
+    },
   },
   plugins: [],
 }
