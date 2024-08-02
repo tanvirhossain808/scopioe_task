@@ -1,11 +1,12 @@
 import { useState } from "react";
 import Logo from "../../../components/Logo/Logo";
+import AuthForms from "../../../components/Logo/AuthForms/AuthForms";
 
 const Create_Account = () => {
-    // const [canShowFrom, setCanShowFrom] = useState(false)
+    const [canShowFrom, setCanShowFrom] = useState(false)
     return (
-        <div className="w-full h-screen bg-auth-phone-background bg-cover bg-center overflow-y-hidden">
-            <div className="max-w-[380px] mx-auto mt-[64px] ">
+        <div className="w-full h-screen bg-auth-phone-background bg-cover bg-center overflow-y-hidden relative">
+            <div className="max-w-[380px] mx-auto mt-[64px]">
                 <Logo />
                 <h2 className="mt-8 text-[#1A2531] text-[28px] font-semibold text-center">Sign In To Your Account</h2>
                 <p className="mt-3 text-[#D1D1D1] text-[15px]">Welcome Back! By click the sign up button, you&apos;re agree to
@@ -24,6 +25,7 @@ const Create_Account = () => {
                     </h4>
                 </div>
             </div>
+            <AuthForms />
         </div>
     );
 };

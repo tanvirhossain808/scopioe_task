@@ -18,8 +18,12 @@ export default {
       },
       lineHeight: {
         normal: "1.75rem"
-      }
+      },
+      borderWidth: { 1: ".7px" }
     },
+    colors: {
+      "light-sky": "#4285F3"
+    }
   },
   plugins: [],
 }
