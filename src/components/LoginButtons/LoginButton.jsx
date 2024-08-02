@@ -7,8 +7,8 @@ const LoginButton = () => {
                     <span className="text-[#152A16] text-base">Google</span>
                 </button>
                 <button className="bg-fb-gradient rounded-[10px] shadow-google-shadow w-[146px] h-[45px] flex items-center justify-center">
-                    <img src="/public/assets/images/logo/Facebook.svg" width={22} height={22} alt="Google logo" />
-                    <span className="text-[#fff] text-base">Google</span>
+                    <img src="/assets/images/logo/Facebook.svg" width={22} height={22} alt="Google logo" />
+                    <span className="text-[#fff] text-base">Facebook</span>
                 </button>
             </div>
             <div className="flex gap-2 items-center justify-center mt-6 mb-[50px]">
