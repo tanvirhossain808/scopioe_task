@@ -7,6 +7,9 @@ function App() {
   return (
     <>
       {/* <Layout /> */}
+      <p className='bg-red-800'>
+        hey
+      </p>
       djdjldk
     </>
   )

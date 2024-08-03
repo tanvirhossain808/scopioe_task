@@ -58,11 +58,11 @@ const AuthForms = ({ auth = "Sign Up" }) => {
     };
 
     return (
-        <div className="bg-[#fff] absolute bottom-0 right-0 left-0 rounded-t-[40px]">
+        <div className="bg-[#fff] absolute md:static bottom-0 right-0 left-0 rounded-t-[40px]">
             {
-                auth === "Sign Up" ? <h2 className="text-[#1A2531] mt-8 text-[28px] font-semibold text-center">Sing Up</h2> : <>
-                    <h2 className="text-[#152A16] mt-8 text-[28px] font-semibold leading-[24px] text-center">Log In To Your Account</h2>
-                    <p className="text-[#5C635A] text-[14px] leading-[50px] mt-[18px] text-center">
+                auth === "Sign Up" ? <h2 className="text-[#1A2531] mt-8 text-[28px] font-semibold text-center md:hidden">Sing Up</h2> : <>
+                    <h2 className="text-[#152A16] mt-8 text-[28px] font-semibold leading-[24px] text-center md:text-left">Log In To Your Account</h2>
+                    <p className="text-[#5C635A] text-[14px] leading-[50px] mt-[18px] text-center md:text-left">
                         Welcome Back! Select a method to log in:
                     </p>
                     <LoginButton />
@@ -122,7 +122,7 @@ const AuthForms = ({ auth = "Sign Up" }) => {
                     </div>
                 </div>
 
-                {auth === "Sign Up" && <div className="flex flex-col gap-3 mt-6 relative bg-red-400">
+                {auth === "Sign Up" && <div className="flex flex-col gap-3 mt-6 relative">
                     <label htmlFor="password" className="text-[#152A16] font-medium leading-[14px]">Re-enter Password</label>
                     <div className="relative">
                         <input
@@ -146,7 +146,7 @@ const AuthForms = ({ auth = "Sign Up" }) => {
 
 
                     {errors.passwordError && (
-                        <p className="mt-2 text-sm text-red-600 text-[red]">{errors.passwordError}</p>
+                        <p className="mt-2 text-sm text-red-600">{errors.passwordError}</p>
                     )}
                 </div>}
                 <div className="flex gap-2 items-center mt-3">
