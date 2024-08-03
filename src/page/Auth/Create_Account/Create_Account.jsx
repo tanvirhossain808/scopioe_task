@@ -9,7 +9,7 @@ const Create_Account = () => {
         <>
             <div className="lg:flex items-center justify-center gap-[120px] h-screen lg:px-[20px]">
                 <div className="w-full h-screen bg-auth-phone-background bg-cover bg-center pt-[1px] relative lg:bg-none lg:max-w-[430px] lg:max-h-[802px]">
-                    <div className="max-w-[380px] lg:max-w-full mx-auto lg:mx-0 mt-[55px] container">
+                    <div className="min-w-[380px] w-full lg:max-w-full mx-auto lg:mx-0 mt-[55px] container">
                         <Logo />
                         {!canShowFrom && <>
                             <h2 className="mt-8 text-[#1A2531] text-[28px] font-semibold text-center lg:text-start">Sign In To Your Account</h2>

@@ -10,7 +10,7 @@ const Login = () => {
                     <div className="mt-[59px]">
                         <Logo />
                     </div>
-                    <div className="max-w-[380px] lg:min-w-[428px] mx-auto lg:mx-0 mt-[24px] text-center">
+                    <div className="min-w-[380px] lg:min-w-[428px] mx-auto lg:mx-0 mt-[24px] text-center h-full">
                         <h4 className="text-[18px] text-light-white lg:hidden">
                             <span className="text-[#fff] ">Sign In</span> to view all the <br /> massage therapists
                         </h4>
