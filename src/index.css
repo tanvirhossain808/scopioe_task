@@ -33,3 +33,44 @@
     font-weight: 600;
     font-style: normal;
 }
+
+.slider-container {
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.slick-slide {
+    /* opacity: 0.5; */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.slick-center {
+    opacity: 1;
+    transform: scale(1.4);
+}
+
+.slick-prev,
+.slick-next {
+    z-index: 1;
+    background-color: red;
+    /* display: none; */
+}
+
+.slide {
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.slide img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.slide h3 {
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    text-align: center;
+}

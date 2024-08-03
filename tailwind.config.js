@@ -21,7 +21,10 @@ export default {
         "light-sky": "#4285F3",
         "dark-sky": "#156BCA",
         "light-white": "rgba(255, 255, 255, 0.96)",
-        "light-gray": "rgba(59, 70, 51, 0.45)"
+        "light-gray": "rgba(59, 70, 51, 0.45)",
+        "color-primary": "#EEF2F5",
+        "color-white": "#fff",
+        "dark-black": "#152A16"
       },
       backgroundImage: {
         'google-gradient': 'linear-gradient(91deg, #E4E4E4 0.64%, #FFF9 99.53%)',
