@@ -58,11 +58,11 @@ const AuthForms = ({ auth = "Sign Up" }) => {
     };
 
     return (
-        <div className="bg-[#fff] absolute md:static bottom-0 right-0 left-0 rounded-t-[40px]">
+        <div className="bg-[#fff] absolute lg:static bottom-0 right-0 left-0 rounded-t-[40px]">
             {
-                auth === "Sign Up" ? <h2 className="text-[#1A2531] mt-8 text-[28px] font-semibold text-center md:hidden">Sing Up</h2> : <>
-                    <h2 className="text-[#152A16] mt-8 text-[28px] font-semibold leading-[24px] text-center md:text-left">Log In To Your Account</h2>
-                    <p className="text-[#5C635A] text-[14px] leading-[50px] mt-[18px] text-center md:text-left">
+                auth === "Sign Up" ? <h2 className="text-[#1A2531] mt-8 text-[28px] font-semibold text-center lg:hidden">Sing Up</h2> : <>
+                    <h2 className="text-[#152A16] mt-8 text-[28px] font-semibold leading-[24px] text-center lg:text-left">Log In To Your Account</h2>
+                    <p className="text-[#5C635A] text-[14px] leading-[50px] mt-[18px] text-center lg:text-left">
                         Welcome Back! Select a method to log in:
                     </p>
                     <LoginButton />

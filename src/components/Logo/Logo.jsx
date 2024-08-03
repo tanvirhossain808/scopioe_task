@@ -4,7 +4,7 @@ const Logo = () => {
         <>
             <div className="">
                 {/* <center> */}
-                <img src="/assets/images/logo/LOGO (1).png" width={109} className="w-[109px] mx-auto md:mx-0" />
+                <img src="/assets/images/logo/LOGO (1).png" width={109} className="w-[109px] mx-auto lg:mx-0" />
                 {/* </center> */}
             </div>
         </>

@@ -20,7 +20,8 @@ export default {
       colors: {
         "light-sky": "#4285F3",
         "dark-sky": "#156BCA",
-        "light-white": "rgba(255, 255, 255, 0.96)"
+        "light-white": "rgba(255, 255, 255, 0.96)",
+        "light-gray": "rgba(59, 70, 51, 0.45)"
       },
       backgroundImage: {
         'google-gradient': 'linear-gradient(91deg, #E4E4E4 0.64%, #FFF9 99.53%)',
@@ -34,7 +35,6 @@ export default {
         center: true,
         padding: '1rem',
         screens: {
-          lg: '1440px',
           xl: '1440px',
           '2xl': '1440px',
         },
