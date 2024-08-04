@@ -20,6 +20,7 @@ export default {
       colors: {
         "light-sky": "#4285F3",
         "dark-sky": "#156BCA",
+        "very-light-sky": "#D4E9FF",
         "light-white": "rgba(255, 255, 255, 0.96)",
         "light-gray": "rgba(59, 70, 51, 0.45)",
         "color-primary": "#EEF2F5",
