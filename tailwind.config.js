@@ -37,7 +37,7 @@ export default {
       },
       container: {
         center: true,
-        padding: '1rem',
+        // padding: '1rem',
         screens: {
           xl: '1440px',
           '2xl': '1440px',
