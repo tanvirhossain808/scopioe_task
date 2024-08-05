@@ -89,6 +89,7 @@ const FeaturedTherapist = () => {
                             },
                             1024: {
                                 slidesPerView: 4,
+                                slidesPerGroup: 4,
                                 spaceBetween: 5,
                             },
                         }}

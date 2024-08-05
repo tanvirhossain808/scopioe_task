@@ -6,20 +6,23 @@ const Layout = () => {
     const path = useLocation()
     const authLocation = path.pathname === "/login" || path.pathname === "/createAccount"
     return (
-        <div className={`${!authLocation && "bg-color-primary"} relative lg:overflow-visible`}>
+        <div className={`${!authLocation && "bg-color-primary"} relative min-h-screen lg:overflow-visible`}>
             {/* <div>
                 <Header />
             </div> */}
 
-            <div className="lg:flex max-w-[1440px] mx-auto">
-                <div className="lg:block bg-white min-w-[250px] hidden">
-                    <div className="sticky top-0 min-h-dvh">
-                        <Nav />
+            <div className={`lg:flex max-w-[1440px] mx-auto`}>
+                {
+                    !authLocation && <div className="lg:block bg-white min-w-[250px] hidden">
+                        <div className="sticky top-0 min-h-dvh">
+                            <Nav />
+                        </div>
                     </div>
-                </div>
-                <div className="grow max-w-[1190px] overflow-hidden">
-                    <Header />
-                    <div className="mx-[30px]">
+                }
+
+                <div className={`grow ${authLocation ? "max-w-full" : "max-w-[1190px]"} overflow-hidden ${authLocation && "overflow-visible bg-wh=ite"} `}>
+                    {!authLocation && <Header />}
+                    <div className={` ${authLocation ? "mx-0" : "mx-[30px]"}`}>
                         <Outlet />
                     </div>
                 </div>

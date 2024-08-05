@@ -1,11 +1,24 @@
 /* eslint-disable react/prop-types */
-
+import { useCreateUserWithEmailAndPassword, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useState } from "react";
 import { BiShowAlt } from "react-icons/bi";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import LoginButton from "../../LoginButtons/LoginButton";
+import firebaseAuth from '../../../firebase/firebase.config';
 
 const AuthForms = ({ auth = "Sign Up" }) => {
+    const [
+        createUserWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useCreateUserWithEmailAndPassword(firebaseAuth);
+    const [
+        signInWithEmailAndPassword,
+        loginuser,
+        loginLoadinloading,
+        logingError,
+    ] = useSignInWithEmailAndPassword(firebaseAuth);
     const [showPassword, setShowPassword] = useState(false)
     const [showReTypePassword, setShowRetypePassword] = useState(false)
     const [errors, setErrors] = useState({ passwordError: "", formError: "" })
@@ -14,7 +27,7 @@ const AuthForms = ({ auth = "Sign Up" }) => {
         : { email: "", password: "", checked: false };
 
     const [formData, setFormData] = useState(initialFormData);
-
+    const navigate = useNavigate()
     const handleChange = (e) => {
         setFormData((prev) => ({
             ...prev,
@@ -48,17 +61,42 @@ const AuthForms = ({ auth = "Sign Up" }) => {
         return valid;
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        if (validateForm()) {
-            console.log("Form submitted successfully");
-        } else {
+        if (validateForm() && auth === "Sign Up") {
+            try {
+                const user = await createUserWithEmailAndPassword(formData.email, formData.password)
+                // if (user) console.log(user);
+                if (error) {
+                    console.log(error)
+                    return
+                }
+                if (user) navigate("/")
+            } catch (err) {
+                console.log(error);
+            }
+        }
+
+        else if (validateForm()) {
+            try {
+                const user = await signInWithEmailAndPassword(formData.email, formData.password)
+                // if (user) console.log(user);
+                if (logingError) {
+                    console.log(logingError)
+                    return
+                }
+                if (user) navigate("/")
+            } catch (err) {
+                console.log(logingError);
+            }
+        }
+        else {
             console.log("Form validation failed");
         }
     };
 
     return (
-        <div className="bg-[#fff] absolut h-full w-full lg:static bottom-0 right-0 left-0 rounded-t-[40px] mt-10 lg:mt-0 pt-[1px]">
+        <div className="bg-[#fff] absolute w-full lg:static bottom-0 right-0 left-0 rounded-t-[40px] mt-10 lg:mt-0 pt-[1px]">
             {
                 auth === "Sign Up" ? <h2 className="text-[#1A2531] mt-8 text-[28px] font-semibold text-center lg:hidden">Sing Up</h2> : <>
                     <h2 className="text-[#152A16] mt-8 text-[28px] font-semibold leading-[24px] text-center lg:text-left">Log In To Your Account</h2>
@@ -164,7 +202,57 @@ const AuthForms = ({ auth = "Sign Up" }) => {
 
                     }
                 </div>
-                <button type="submit" className="block bg-light-sky max-w-[271px] w-full px-10 py-4 rounded-[10px] mt-10 mx-auto font-semibold text-[16px] text-[#fff]">{auth}</button>
+                <button
+                    type="submit"
+                    className="relative flex items-center justify-center bg-light-sky max-w-[271px] w-full px-10 py-4 rounded-[10px] mt-10 mx-auto font-semibold text-[16px] text-[#fff] disabled:opacity-50"
+                    disabled={loading || loginLoadinloading}
+                >
+                    {loading && (
+                        <svg
+                            className="absolute w-5 h-5 mr-3 text-white animate-spin"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                        >
+                            <circle
+                                className="opacity-25"
+                                cx="12"
+                                cy="12"
+                                r="10"
+                                stroke="currentColor"
+                                strokeWidth="4"
+                            ></circle>
+                            <path
+                                className="opacity-75"
+                                fill="currentColor"
+                                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+                            ></path>
+                        </svg>
+                    )}
+                    {loginLoadinloading && (
+                        <svg
+                            className="absolute w-5 h-5 mr-3 text-white animate-spin"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                        >
+                            <circle
+                                className="opacity-25"
+                                cx="12"
+                                cy="12"
+                                r="10"
+                                stroke="currentColor"
+                                strokeWidth="4"
+                            ></circle>
+                            <path
+                                className="opacity-75"
+                                fill="currentColor"
+                                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+                            ></path>
+                        </svg>
+                    )}
+                    <span className={loading ? 'opacity-0' : 'opacity-100'}>{auth}</span>
+                </button>
             </form >
             <div className="flex justify-center">
                 {auth === "Sign Up" ? <p className="text-base font-medium text-[#152A16] mt-3 mb-10">Already Have an Account?
