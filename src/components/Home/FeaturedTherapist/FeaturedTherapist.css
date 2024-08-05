@@ -1,4 +1,4 @@
-.slider-container {
+/* .slider-container {
     position: relative;
     margin: 0 auto;
     overflow: hidden;
@@ -54,4 +54,9 @@
         align-items: center;
         justify-content: center;
     }
+} */
+.swiper-slide {
+    display: flex !important;
+    justify-content: center;
+    /* align-items: center; */
 }

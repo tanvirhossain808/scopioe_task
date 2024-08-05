@@ -9,6 +9,7 @@ import Home from "../page/Home";
 import Layout from "../Layout/Layout";
 import Create_Account from "../page/Auth/Create_Account/Create_Account";
 import Login from "../page/Auth/Login/Login";
+import App from "../App";
 
 
 // here some bugs
@@ -33,6 +34,10 @@ export const RoutesPath = () => {
                     {
                         path: "/login",
                         element: <Login />
+                    },
+                    {
+                        path: "/app",
+                        element: <App />
                     }
                 ]
             }

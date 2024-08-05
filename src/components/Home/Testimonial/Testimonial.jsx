@@ -2,11 +2,11 @@
 
 const Testimonial = ({ img }) => {
     return (
-        <div className=" mx-auto w-full  border-[1px] border-[#E7E7E7] md:gap-20 justify-center rounded-lg p-[10px] flex items-center justify-betwee gap-4">
+        <div className=" mx-auto w-full  border-[1px] border-[#E7E7E7] justify-center rounded-lg p-[10px] flex items-center justify-betwee gap-4">
             <div>
                 <img src={img} width={130} height={140} alt="Featured Testimonial" className="max-w-full" />
             </div>
-            <div className="max-w-[235px] w-full">
+            <div className="max-w-[235px] lg:max-w-[317px]">
                 <div className="flex flex-col gap-2">
                     <div className="flex items-center gap-[5px]">
                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
@@ -19,7 +19,7 @@ const Testimonial = ({ img }) => {
                     <h4 className="text-[#232F3C] tracking-[.28px] font-medium text-[14px]">
                         Healing Bodywork <span className="text-dark-sky font-semibold">by Cort</span>
                     </h4>
-                    <p className="text-[12px] text-[#5C635A] leading-[18px] tracking-[.24px]">
+                    <p className="text-[12px] text-[#5C635A] leading-[18px] tracking-[.24px] lg:w-[317px]">
                         Cort&apos;s healing bodywork massage was absolutely transformative. Their intuitive touch and deep understanding of... <span className="font-medium text-dark-sky">Read More</span>
                     </p>
                 </div>

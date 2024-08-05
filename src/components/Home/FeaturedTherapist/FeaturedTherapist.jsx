@@ -1,104 +1,110 @@
 /* eslint-disable react/prop-types */
+
+import 'swiper/css';
+import 'swiper/css/pagination';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
 import sliderData from "../../../data/sliderData";
 import SliderContent from "../Slider/SliderContent";
 import { useState } from "react";
-// import style from "./FeaturedTherapist.module.css"
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "./FeaturedTherapist.css"
 
-const CustomArrow = ({ className, onClick, side }) => {
+const CustomArrow = ({ onClick, side }) => {
     const [isHovered, setIsHovered] = useState(false);
 
     return (
-        <div
-            className={`${className} absolute top-1/2 transform -translate-y-1/2 text-white rounded-full p-2 hover:bg-[#156BCA] hover:text-white cursor-pointer hidden lg:flex`}
+        <svg
+            className="absolute top-1/2 transform -translate-y-1/2 text-white rounded-full lg:block hidden"
+            xmlns="http://www.w3.org/2000/svg"
+            width="40"
+            height="40"
+            viewBox="0 0 40 40"
+            fill="none"
             style={{
-                [side]: '-70px', // Position the arrow on the left or right
+                [side]: '-70px',
                 zIndex: 2,
+                cursor: 'pointer',
+                width: 40,
+                height: 40,
             }}
             onClick={onClick}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
-            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
-                <circle cx="20" cy="20" r="20" fill={isHovered ? "#156BCA" : "#D4E9FF"} />
-                <path
-                    d={side === 'left' ? "M22 26L16 20L22 14" : "M18 26L24 20L18 14"}
-                    stroke={isHovered ? "white" : "#152A16"}
-                    strokeWidth="1.3"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                />
-            </svg>
-        </div>
+            <circle cx="20" cy="20" r="20" fill={isHovered ? "#156BCA" : "#D4E9FF"} />
+            <path
+                d={side === 'left' ? "M22 26L16 20L22 14" : "M18 26L24 20L18 14"}
+                stroke={isHovered ? "white" : "#152A16"}
+                strokeWidth="1.3"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+        </svg>
     );
 };
 
+import { useRef } from 'react';
+import 'swiper/css';
+import 'swiper/css/pagination';
 
 const FeaturedTherapist = () => {
-    const settings = {
-        arrows: true,
-        infinite: true,
-        speed: 500,
-        autoplay: true,
-        autoplaySpeed: 2000,
-        slidesToShow: 4,
-        // centerMode: true,
-        // centerPadding: '10%',
-        slidesToScroll: 2,
-        initialSlide: 0,
-        nextArrow: <CustomArrow side="right" />,
-        prevArrow: <CustomArrow side="left" />,
-        responsive: [
-            {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 2.5,
-                    slidesToScroll: 3,
-                    infinite: true,
-                    dots: false,
-                    arrows: false,
-                    centerPadding: '10%',
-                    // centerMode: true,
+    const swiperRef = useRef(null);
 
-                }
-            },
-            {
-                breakpoint: 600,
-                settings: {
-                    slidesToShow: 2.5,
-                    slidesToScroll: 2,
-                    arrows: false
-                    // centerPadding: '24%',
-                    // centerMode: true,
+    const handlePrev = () => {
+        if (swiperRef.current) {
+            swiperRef.current.swiper.slidePrev();
+        }
+    };
 
-                }
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 2.5,
-                    slidesToScroll: 1,
-                    centerPadding: '25%',
-                    arrows: false
-                    // centerMode: true,
-
-                }
-            }
-        ]
+    const handleNext = () => {
+        if (swiperRef.current) {
+            swiperRef.current.swiper.slideNext();
+        }
     };
 
     return (
-        <div className="container mx-auto hidd ">
+        <div className="mx-auto">
             <h2 className="mt-8 text-dark-black text-[18px] font-medium leading-[30px] ml-4 lg:ml-0">Featured Therapist</h2>
-            <div className="bg-white py-6 mt-6">
-                <div className="slider-container relative lg:px-[100px]">
-                    <Slider {...settings}>
+            <div className="bg-white px-[50px] mt-6 py-6 rounded-[10px]">
+                <div className="slider-container relative overflow-visible">
+                    <Swiper
+                        slidesPerView={2}
+                        slidesPerGroup={2}
+                        spaceBetween={10}
+                        // pagination={{ clickable: true }}
+                        autoplay={{ delay: 3000, disableOnInteraction: false }}
+                        loop={true}
+                        breakpoints={{
+                            640: {
+                                slidesPerView: 2,
+                                spaceBetween: 10,
+                                slidesPerGroup: 2
+                            },
+                            768: {
+                                slidesPerView: 3,
+                                spaceBetween: 10,
+                                slidesPerGroup: 3
+                            },
+                            1024: {
+                                slidesPerView: 4,
+                                spaceBetween: 5,
+                            },
+                        }}
+                        navigation={false}
+                        modules={[Pagination, Autoplay, Navigation]}
+                        className="mySwiper"
+                        ref={swiperRef}
+                    >
                         {sliderData.map((slider) => (
-                            <SliderContent key={slider.id} {...slider} />
+                            <SwiperSlide key={slider.id}>
+                                <SliderContent {...slider} />
+                            </SwiperSlide>
                         ))}
-                    </Slider>
+                    </Swiper>
+                    <CustomArrow side="left" onClick={handlePrev} />
+                    <CustomArrow side="right" onClick={handleNext} />
                 </div>
             </div>
         </div>
@@ -106,3 +112,4 @@ const FeaturedTherapist = () => {
 };
 
 export default FeaturedTherapist;
+
