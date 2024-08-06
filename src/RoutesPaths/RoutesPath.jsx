@@ -33,7 +33,7 @@ export const RoutesPath = () => {
                     },
                     {
                         path: "/country",
-                        element: <Country />
+                        element: authUser ? <Country /> : <Navigate to={"/login"} />
                     }
                 ]
             }
