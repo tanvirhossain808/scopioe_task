@@ -16,7 +16,7 @@ const Error = () => {
                                 </h3>
                                 <p>the page you are looking for not avaible!</p>
                                 <Link to={"/"}>
-                                    {/* <button className="bg-dark-sky text-white font-semibold py-5 rounded-lg px-5 my-4 inline-block transition duration-300 hover:bg-light-sky">Go to Home</button> */}
+                               <button className="bg-dark-sky text-white font-semibold py-5 rounded-lg px-5 my-4 inline-block transition duration-300 hover:bg-light-sky">Go to Home</button>     
                                 </Link>
                             </div>
                         </div>
