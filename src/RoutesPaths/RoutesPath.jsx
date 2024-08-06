@@ -6,6 +6,7 @@ import Login from "../page/Auth/Login/Login";
 import firebaseAuth from "../firebase/firebase.config";
 import { useAuthState } from "react-firebase-hooks/auth";
 import Error from "../page/Error/Error";
+import Country from "../page/Country/Country";
 
 export const RoutesPath = () => {
     const [authUser] = useAuthState(firebaseAuth);
@@ -30,10 +31,10 @@ export const RoutesPath = () => {
                         path: "/login",
                         element: !authUser ? <Login /> : <Navigate to={"/"} />
                     },
-                    // {
-                    //     path: "/app",
-                    //     element: <App />
-                    // }
+                    {
+                        path: "/country",
+                        element: <Country />
+                    }
                 ]
             }
 
