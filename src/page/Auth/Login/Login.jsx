@@ -1,10 +1,26 @@
+
+import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 import AuthMessage from "../../../components/AuthMessage/AuthMessage";
 import AuthForms from "../../../components/Logo/AuthForms/AuthForms";
 import Logo from "../../../components/Logo/Logo"
+import firebaseAuth from "../../../firebase/firebase.config";
 
 const Login = () => {
+    const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(firebaseAuth);
+    const handle = async () => {
+        try {
+            await signInWithGoogle()
+            console.log(error)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    console.log(import.meta.env.VITE_APPID)
     return (
         <>
+            <button onClick={handle}>
+                hey
+            </button>
             <div className="flex lg:items-center justify-center h-screen gap-[120px] w-full lg:px-5">
                 <div className="w-full lg:max-w-[435px] bg-auth-phone-background bg-cover bg-center pt-[1px] lg:bg-none relative">
                     <div className="mt-[59px]">
