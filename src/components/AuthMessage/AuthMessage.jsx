@@ -24,7 +24,7 @@ const AuthMessage = ({ canShowFrom, setCanShowFrom, auth }) => {
                             <span className="text-dark-sky font-semibold">
                                 Sign In
                             </span>
-                            to view all the
+                            {" "}to view all the
                             <br />
                             massage therapists
                         </h4>

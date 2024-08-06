@@ -5,6 +5,7 @@ import Create_Account from "../page/Auth/Create_Account/Create_Account";
 import Login from "../page/Auth/Login/Login";
 import firebaseAuth from "../firebase/firebase.config";
 import { useAuthState } from "react-firebase-hooks/auth";
+import Error from "../page/Error/Error";
 
 export const RoutesPath = () => {
     const [authUser] = useAuthState(firebaseAuth);
@@ -13,6 +14,7 @@ export const RoutesPath = () => {
             {
                 path: '',
                 element: <Layout />,
+                errorElement: <Error />,
                 children: [
                     {
                         path: `/`,
