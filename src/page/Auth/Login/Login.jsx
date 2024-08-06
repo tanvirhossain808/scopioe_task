@@ -1,10 +1,6 @@
-
-import { useSignInWithFacebook } from "react-firebase-hooks/auth";
 import AuthMessage from "../../../components/AuthMessage/AuthMessage";
 import AuthForms from "../../../components/Logo/AuthForms/AuthForms";
 import Logo from "../../../components/Logo/Logo";
-import firebaseAuth from "../../../firebase/firebase.config";
-import { useEffect } from "react";
 
 
 const Login = () => {
@@ -12,7 +8,7 @@ const Login = () => {
     return (
         <>
             {/* <button onClick={signInWithFacebook}>k</button> */}
-            <div className="flex lg:items-center justify-center h-screen gap-[120px] w-full lg:px-5">
+            <div className="flex lg:items-center justify-center h-screen lg:h-auto gap-[120px] w-full lg:px-5">
                 <div className="w-full lg:max-w-[435px] bg-auth-phone-background bg-cover bg-center pt-[1px] lg:bg-none relative">
                     <div className="mt-[59px]">
                         <Logo />

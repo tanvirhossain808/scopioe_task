@@ -97,7 +97,7 @@ const AuthForms = ({ auth = "Sign Up" }) => {
         console.log(error)
     }
     return (
-        <div className="bg-[#fff] absolute w-full lg:static bottom-0 right-0 left-0 rounded-t-[40px] mt-10 lg:mt-0 pt-[1px]">
+        <div className="bg-[#fff] absolue lg:b w-full lg:static bottom-0 right-0 left-0 rounded-t-[40px] mt-10 lg:mt-0 pt-[1px]">
             {
                 auth === "Sign Up" ? <h2 className="text-[#1A2531] mt-8 text-[28px] font-semibold text-center lg:hidden">Sing Up</h2> : <>
                     <h2 className="text-[#152A16] mt-8 text-[28px] font-semibold leading-[24px] text-center lg:text-left">Log In To Your Account</h2>

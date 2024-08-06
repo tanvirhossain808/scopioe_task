@@ -7,7 +7,7 @@ const Create_Account = () => {
     const [canShowFrom, setCanShowFrom] = useState(false)
     return (
         <>
-            <div className="lg:flex items-center justify-center gap-[120px] lg:px-[20px]">
+            <div className="lg:flex items-center justify-center gap-[120px] lg:px-[20px] overflow-scroll]">
                 <div className="w-full h-screen bg-auth-phone-background bg-cover bg-center pt-[1px] relative lg:bg-none lg:max-w-[430px] lg:max-h-[802px]">
                     <div className="min-w-[380px] w-full lg:max-w-full mx-auto lg:mx-0 mt-[55px] container mb-[35px]">
                         <Logo />
@@ -26,7 +26,7 @@ const Create_Account = () => {
                             <AuthMessage canShowFrom={canShowFrom} setCanShowFrom={setCanShowFrom} auth={"Sign Up"} />
                         </div>
                     </div>
-                    {canShowFrom && <AuthForms />}
+                    {canShowFrom && <div className="block lg:hidden"> <AuthForms /></div>}
                     <div className="hidden lg:block">
                         <AuthForms />
                     </div>
