@@ -10,11 +10,9 @@ const Header = () => {
         window.addEventListener("resize", () => {
             setWindowWidth(window.innerWidth)
         })
-        // currentWidth()
         if (windowWidth > 1024) setShowNav(false)
         return window.removeEventListener("resize", () => { })
     }, [windowWidth])
-    console.log(windowWidth);
     return (
         <>
             <div className="bg-color-primary h-[60px] lg:h-[88px] sticky top-0 z-50">

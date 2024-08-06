@@ -1,16 +1,31 @@
 // import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 
 // import useSignInWithPopup
-import { useSignInWithGoogle } from "react-firebase-hooks/auth";
+import { useSignInWithFacebook, useSignInWithGoogle } from "react-firebase-hooks/auth";
 import firebaseAuth from "../../firebase/firebase.config";
 import { useNavigate } from "react-router-dom";
 const LoginButton = () => {
-    const [signInWithGoogle, , , error] = useSignInWithGoogle(firebaseAuth);
 
     const navigate = useNavigate()
+    const [signInWithGoogle, , , error] = useSignInWithGoogle(firebaseAuth);
+    const [signInWithFacebook, user, loading, fbError] = useSignInWithFacebook(firebaseAuth);
+
     const handleSocialLogin = async (btn = "fb") => {
         if (btn === "fb") {
-            console.log("fb")
+            try {
+                await signInWithFacebook()
+                if (fbError) {
+                    console.log(error)
+                }
+                if (fbError) {
+                    console.log(fbError)
+                    return
+                }
+                if (user) navigate("/")
+            } catch (error) {
+                console.log(error)
+
+            }
         }
         else {
             try {
@@ -33,7 +48,7 @@ const LoginButton = () => {
                     <img src="/assets/images/logo/google.svg" width={22} height={22} alt="Google logo" />
                     <span className="text-[#152A16] text-base">Google</span>
                 </button>
-                <button className="bg-fb-gradient rounded-[10px] shadow-google-shadow w-[146px] gap-2 h-[45px] flex items-center justify-center" onClick={() => handleSocialLogin()}>
+                <button className="bg-fb-gradient rounded-[10px] shadow-google-shadow w-[146px] gap-2 h-[45px] flex items-center justify-center" onClick={() => handleSocialLogin("fb")}>
                     <img src="/assets/images/logo/Facebook.svg" width={22} height={22} alt="Google logo" />
                     <span className="text-[#fff] text-base">Facebook</span>
                 </button>

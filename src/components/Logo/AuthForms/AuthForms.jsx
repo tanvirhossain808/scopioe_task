@@ -69,7 +69,6 @@ const AuthForms = ({ auth = "Sign Up" }) => {
                 // if (user) console.log(user);
                 if (error) {
                     console.log(error)
-                    return
                 }
                 if (user) navigate("/")
             } catch (err) {
@@ -94,7 +93,9 @@ const AuthForms = ({ auth = "Sign Up" }) => {
             console.log("Form validation failed");
         }
     };
-
+    if (error) {
+        console.log(error)
+    }
     return (
         <div className="bg-[#fff] absolute w-full lg:static bottom-0 right-0 left-0 rounded-t-[40px] mt-10 lg:mt-0 pt-[1px]">
             {

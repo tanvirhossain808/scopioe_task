@@ -2,7 +2,7 @@
 // import Slider from "react-slick";
 import Testimonial from "../Testimonial/Testimonial";
 import img1 from "/assets/images/FeaturedTestimonial/people2.png"
-import img2 from "/public/assets/images/FeaturedTestimonial/people1.png"
+import img2 from "/assets/images/FeaturedTestimonial/people1.png"
 
 const FeaturedTestimonial = () => {
     /*     const settings = {
